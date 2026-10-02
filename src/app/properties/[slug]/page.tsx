@@ -50,7 +50,7 @@ export default async function PropertyPage({ params }: { params: Params }) {
 
   return (
     <div className="bg-marble pt-[7.5rem] md:pt-[8.5rem]">
-      <article className="mx-auto max-w-site px-4 pb-28 sm:px-6 lg:px-10 md:pb-24">
+      <article className="mx-auto min-w-0 max-w-site px-4 pb-28 sm:px-6 lg:px-10 md:pb-24">
         <div className="pt-4 md:pt-8">
           <BackButton
             label="Back to listings"
@@ -70,7 +70,8 @@ export default async function PropertyPage({ params }: { params: Params }) {
                   className="aspect-video w-full"
                   controls
                   playsInline
-                  preload="none"
+                  preload="metadata"
+                  poster={images[0]}
                   src={src}
                 />
               </div>

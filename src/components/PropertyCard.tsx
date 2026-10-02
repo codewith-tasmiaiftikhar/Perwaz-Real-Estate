@@ -23,8 +23,14 @@ export function PropertyCard({ property }: { property: Property }) {
               <img
                 src={photo}
                 alt={property.title}
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                onError={(event) => {
+                  const img = event.currentTarget;
+                  if (img.dataset.retry === "1") return;
+                  img.dataset.retry = "1";
+                  img.src = `${photo}?retry=1`;
+                }}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.08]"
               />
             </>
