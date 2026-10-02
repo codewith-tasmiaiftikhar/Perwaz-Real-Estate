@@ -1,6 +1,6 @@
 import { contacts, phoneDigits } from "@/data/site";
 
-export function whatsappUrl(message?: string, phone = contacts[0].phone) {
+export function whatsappUrl(message?: string, phone: string = contacts[0].phone) {
   const number = phoneDigits(phone);
   if (!number) return "";
   const text = encodeURIComponent(
