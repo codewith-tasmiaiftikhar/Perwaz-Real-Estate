@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Property } from "@/data/properties";
 import { propertyPhoto, propertyVideo, typeLabel } from "@/data/properties";
-import { formatPrice } from "@/lib/format";
 import { CardVideo } from "./CardVideo";
 
 export function PropertyCard({ property }: { property: Property }) {
@@ -11,7 +10,7 @@ export function PropertyCard({ property }: { property: Property }) {
   const video = !photo ? propertyVideo(property) : undefined;
   const sold = property.status === "sold";
   const rent = property.status === "for-rent";
-  const badge = sold ? "Sold" : rent ? "For rent" : "For sale";
+  const badge = sold ? "Sold out" : rent ? "For rent" : "For sale";
 
   return (
     <Link href={`/properties/${property.slug}`} className="group group-card block">
@@ -39,11 +38,8 @@ export function PropertyCard({ property }: { property: Property }) {
             {badge}
           </span>
           <div className="pointer-events-none absolute bottom-5 right-5 z-10 text-right">
-            <span className="font-heading text-2xl leading-none text-white tabular-nums">
-              {formatPrice(property.price, { monthly: rent })}
-            </span>
-            <span className="mt-1 block font-body text-[10px] uppercase tracking-[0.2em] text-white/70">
-              {rent ? "monthly rent · WhatsApp" : "asking price · WhatsApp"}
+            <span className="block font-body text-[10px] uppercase tracking-[0.2em] text-white/80">
+              {sold ? "Sold out" : "WhatsApp for the price"}
             </span>
           </div>
         </div>

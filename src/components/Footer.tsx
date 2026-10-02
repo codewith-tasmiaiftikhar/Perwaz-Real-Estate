@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { site } from "@/data/site";
+import { contacts, site } from "@/data/site";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { WhatsAppButton } from "./WhatsAppButton";
 import { Logo } from "./Logo";
 
 export function Footer() {
-  const wa = whatsappUrl();
 
   return (
     <footer className="bg-ink text-cream">
@@ -38,17 +36,20 @@ export function Footer() {
           <p className="font-body text-[10px] uppercase tracking-[0.25em] text-gold">
             Contact
           </p>
-          <div className="mt-4 space-y-3 font-body text-sm text-cream/70">
-            {wa ? (
-              <a href={wa} target="_blank" rel="noreferrer" className="hover:text-gold">
-                Message on WhatsApp
+          <div className="mt-4 space-y-4 font-body text-sm text-cream/70">
+            {contacts.map((person) => (
+              <a
+                key={person.phone}
+                href={whatsappUrl(undefined, person.phone)}
+                target="_blank"
+                rel="noreferrer"
+                className="block hover:text-gold"
+              >
+                <span className="block text-cream">{person.name}</span>
+                <span>{person.phone}</span>
               </a>
-            ) : null}
-            <p>{site.whatsapp}</p>
+            ))}
             <p>{site.country}</p>
-          </div>
-          <div className="mt-8">
-            <WhatsAppButton light label="Message on WhatsApp" />
           </div>
         </div>
       </div>

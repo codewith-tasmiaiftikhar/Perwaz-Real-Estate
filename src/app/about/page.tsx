@@ -1,6 +1,7 @@
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Reveal } from "@/components/Reveal";
-import { site } from "@/data/site";
+import { contacts, site } from "@/data/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata = {
   title: "About",
@@ -26,7 +27,8 @@ export default function AboutPage() {
             <p>
               We help people buy and sell property in Pakistan. On this site you
               will find houses and other listings with photographs, the size,
-              the asking price, and what is connected — water, electricity, gas.
+              and what is connected — water, electricity, gas. Ask us on
+              WhatsApp for the price.
             </p>
             <p>
               If a home interests you, message us on WhatsApp. That is also the
@@ -34,8 +36,14 @@ export default function AboutPage() {
               size, price and photos.
             </p>
           </div>
-          <div className="mt-10">
-            <WhatsAppButton label="Message on WhatsApp" />
+          <div className="mt-10 flex flex-col items-start gap-3">
+            {contacts.map((person) => (
+              <WhatsAppButton
+                key={person.phone}
+                href={whatsappUrl(undefined, person.phone)}
+                label={person.name}
+              />
+            ))}
           </div>
         </Reveal>
       </section>

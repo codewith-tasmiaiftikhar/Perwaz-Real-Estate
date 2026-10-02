@@ -36,8 +36,8 @@ export default function HomePage() {
             <ul className="mt-8 max-w-md space-y-0">
               {[
                 ["Photos", "Rooms, kitchen, front and porch so you know the condition."],
-                ["Facts", "Area, asking price, and facilities written in plain words."],
-                ["WhatsApp", "One number for visits, papers and questions about the listing."],
+                ["Facts", "Area and facilities written in plain words."],
+                ["WhatsApp", "Message Usama Asghar or Subidar Mehmood for the price and a visit."],
               ].map(([title, desc]) => (
                 <li
                   key={title}

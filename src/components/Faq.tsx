@@ -5,7 +5,7 @@ import { useState } from "react";
 const faqs = [
   {
     q: "What kind of property do you list?",
-    a: "Houses, apartments, plots and some commercial space for sale in Pakistan. Each listing has photos, size, price and facilities.",
+    a: "Houses, apartments, plots and some commercial space for sale in Pakistan. Each listing has photos, size and facilities. Message us on WhatsApp for the price.",
   },
   {
     q: "How do I ask about a house?",

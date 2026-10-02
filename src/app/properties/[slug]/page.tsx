@@ -10,7 +10,7 @@ import {
   propertyVideos,
   typeLabel,
 } from "@/data/properties";
-import { formatPrice } from "@/lib/format";
+import { contacts } from "@/data/site";
 import { propertyEnquireMessage, whatsappUrl } from "@/lib/whatsapp";
 
 type Params = Promise<{ slug: string }>;
@@ -41,11 +41,10 @@ export default async function PropertyPage({ params }: { params: Params }) {
   const images = gallery(property);
   const videos = propertyVideos(property);
   const rent = property.status === "for-rent";
-  const enquire = whatsappUrl(
-    propertyEnquireMessage(
-      property.title,
-      `${property.location}, ${property.city}`,
-    ),
+  const sold = property.status === "sold";
+  const message = propertyEnquireMessage(
+    property.title,
+    `${property.location}, ${property.city}`,
   );
 
   return (
@@ -82,21 +81,21 @@ export default async function PropertyPage({ params }: { params: Params }) {
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start md:mt-10 md:gap-12">
           <aside className="h-fit rounded-sm border border-black/10 bg-white p-5 shadow-[0_16px_42px_-18px_rgba(0,0,0,0.15)] lg:order-2 lg:p-8">
             <p className="font-heading text-3xl font-light text-ink">
-              {formatPrice(property.price, { monthly: rent })}
-            </p>
-            <p className="mt-1 font-body text-[10px] uppercase tracking-[0.2em] text-mute">
-              {property.status === "sold"
-                ? "Sold"
-                : rent
-                  ? "Monthly rent"
-                  : "Asking · for sale"}
+              {sold ? "Sold out" : rent ? "For rent" : "For sale"}
             </p>
             <p className="mt-4 font-body text-sm leading-relaxed text-mute">
-              WhatsApp us for papers, a visit, or to confirm the house is still
-              available.
+              {sold
+                ? "This home is sold out. Message us if you want something similar."
+                : "Message us on WhatsApp for the price, papers, or a visit."}
             </p>
-            <div className="mt-6 hidden lg:block">
-              <WhatsAppButton href={enquire} label="Ask about this house" />
+            <div className="mt-6 hidden flex-col gap-3 lg:flex">
+              {contacts.map((person) => (
+                <WhatsAppButton
+                  key={person.phone}
+                  href={whatsappUrl(message, person.phone)}
+                  label={person.name}
+                />
+              ))}
             </div>
           </aside>
 
@@ -155,16 +154,15 @@ export default async function PropertyPage({ params }: { params: Params }) {
         </div>
       </article>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-black/10 bg-white/95 px-3 py-2.5 backdrop-blur-md lg:hidden pb-[max(0.65rem,env(safe-area-inset-bottom))]">
-        <BackButton
-          label="Back"
-          className="flex-1 justify-center rounded-sm border border-black/15 text-ink"
-        />
-        <WhatsAppButton
-          href={enquire}
-          label="WhatsApp"
-          className="flex-1 justify-center rounded-sm"
-        />
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-black/10 bg-white/95 px-3 py-2.5 backdrop-blur-md lg:hidden pb-[max(0.65rem,env(safe-area-inset-bottom))]">
+        {contacts.map((person) => (
+          <WhatsAppButton
+            key={person.phone}
+            href={whatsappUrl(message, person.phone)}
+            label={person.name}
+            className="justify-center rounded-sm px-2 text-center text-[10px] leading-tight"
+          />
+        ))}
       </div>
     </div>
   );

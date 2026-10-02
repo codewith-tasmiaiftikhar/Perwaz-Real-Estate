@@ -1,7 +1,8 @@
 const lines = [
-  "WhatsApp +92 336 9040860 for a viewing",
+  "WhatsApp Usama Asghar +92 336 9040860",
+  "WhatsApp Subidar Mehmood +92 344 6276521",
+  "Message us for the price and a viewing",
   "Houses, plots and apartments listed with photos",
-  "Each page shows size, water, electricity and gas",
   "Perwaz Real Estate · Pakistan",
 ];
 

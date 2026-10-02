@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { contacts } from "@/data/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { BackButton } from "./BackButton";
 import { Logo } from "./Logo";
@@ -18,7 +19,6 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const wa = whatsappUrl();
   const onListing = pathname.startsWith("/properties/") && pathname !== "/properties";
 
   useEffect(() => {
@@ -80,11 +80,17 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          {wa ? (
-            <Link href={wa} target="_blank" rel="noreferrer" className={linkClass}>
-              WhatsApp
+          {contacts.map((person) => (
+            <Link
+              key={person.phone}
+              href={whatsappUrl(undefined, person.phone)}
+              target="_blank"
+              rel="noreferrer"
+              className={linkClass}
+            >
+              {person.name}
             </Link>
-          ) : null}
+          ))}
         </nav>
       ) : null}
       <Ticker />

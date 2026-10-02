@@ -1,7 +1,7 @@
-import { site } from "@/data/site";
+import { contacts, phoneDigits } from "@/data/site";
 
-export function whatsappUrl(message?: string) {
-  const number = site.whatsapp.replace(/\D/g, "");
+export function whatsappUrl(message?: string, phone = contacts[0].phone) {
+  const number = phoneDigits(phone);
   if (!number) return "";
   const text = encodeURIComponent(
     message ??
@@ -11,5 +11,5 @@ export function whatsappUrl(message?: string) {
 }
 
 export function propertyEnquireMessage(title: string, city: string) {
-  return `Assalamualaikum, I am interested in "${title}" in ${city}, listed on Perwaz Real Estate. Please share details.`;
+  return `Assalamualaikum, I am interested in "${title}" in ${city}, listed on Perwaz Real Estate. Please share the price and details.`;
 }

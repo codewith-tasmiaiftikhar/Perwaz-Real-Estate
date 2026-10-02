@@ -1,13 +1,11 @@
 import Link from "next/link";
-import { site } from "@/data/site";
+import { contacts, site } from "@/data/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { GoldDust } from "./GoldDust";
 import { HeroFilmstrip } from "./HeroFilmstrip";
 import { HeroSlideshow } from "./HeroSlideshow";
 
 export function Hero() {
-  const wa = whatsappUrl();
-
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col bg-ink pt-[7.25rem] md:pt-[7.75rem]">
       <HeroSlideshow />
@@ -56,16 +54,19 @@ export function Hero() {
             </span>
           </label>
           <div className="flex items-center gap-2 p-1 md:pl-3">
-            {wa ? (
-              <Link
-                href={wa}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-sm px-4 py-3 font-body text-xs uppercase tracking-[0.12em] text-[#0b0b0b] hover:text-[#9a7b3a]"
-              >
-                WhatsApp
-              </Link>
-            ) : null}
+            <div className="flex flex-col">
+              {contacts.map((person) => (
+                <Link
+                  key={person.phone}
+                  href={whatsappUrl(undefined, person.phone)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-sm px-3 py-1.5 font-body text-[10px] uppercase tracking-[0.08em] text-[#0b0b0b] hover:text-[#9a7b3a]"
+                >
+                  {person.name}
+                </Link>
+              ))}
+            </div>
             <button
               type="submit"
               className="gold-btn relative overflow-hidden inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-[#d9bd77] px-7 py-3.5 font-body text-xs font-semibold uppercase tracking-[0.14em] text-[#0b0b0b] hover:bg-[#e2c984] md:w-auto"

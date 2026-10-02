@@ -1,3 +1,5 @@
+import { contacts } from "@/data/site";
+import { whatsappUrl } from "@/lib/whatsapp";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 export function EmptyCollection() {
@@ -13,8 +15,14 @@ export function EmptyCollection() {
         Photos and details are added as each property is ready. WhatsApp us in
         the meantime.
       </p>
-      <div className="mt-6">
-        <WhatsAppButton />
+      <div className="mt-6 flex flex-col items-center gap-3">
+        {contacts.map((person) => (
+          <WhatsAppButton
+            key={person.phone}
+            href={whatsappUrl(undefined, person.phone)}
+            label={person.name}
+          />
+        ))}
       </div>
     </div>
   );

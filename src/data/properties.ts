@@ -12,8 +12,6 @@ export type Property = {
   title: string;
   location: string;
   city: string;
-  /** Price in Pakistani Rupees. Rent listings are monthly. */
-  price: number;
   type: PropertyType;
   bedrooms?: number;
   bathrooms?: number;
@@ -39,7 +37,6 @@ export const properties: Property[] = [
     title: "4 Marla Triple-Unit House for Sale",
     location: "Near Askari 14 Gate 1, Caltex Road",
     city: "Rawalpindi",
-    price: 23_000_000,
     type: "house",
     bedrooms: 5,
     bathrooms: 7,
@@ -64,7 +61,7 @@ export const properties: Property[] = [
       "25 ft street",
     ],
     description:
-      "An executive home near Askari 14 Gate No. 1 on Caltex Road. Brand-new modern design on 4 marla (front 22.3 ft, back 45 ft), built as a triple unit. Green view from the front. Five rooms, two drawing rooms, seven washrooms and three kitchens. One-car porch, underground water tank, automatic electric gate lock. Each portion has its own water tank, water pump and electricity meter (three meters), plus a fourth pump. Four-core cable for solar is already in. Gas is available in the 25 ft street. Asking 2 Crore 30 lakh.",
+      "An executive home near Askari 14 Gate No. 1 on Caltex Road. Brand-new modern design on 4 marla (front 22.3 ft, back 45 ft), built as a triple unit. Green view from the front. Five rooms, two drawing rooms, seven washrooms and three kitchens. One-car porch, underground water tank, automatic electric gate lock. Each portion has its own water tank, water pump and electricity meter (three meters), plus a fourth pump. Four-core cable for solar is already in. Gas is available in the 25 ft street. WhatsApp us for the price.",
     coverImage: "17.jpg",
     images: photoList(27, "17.jpg"),
     status: "for-sale",
@@ -74,7 +71,6 @@ export const properties: Property[] = [
     title: "5 Marla Double-Storey House for Sale",
     location: "Caltex Road, Lane 4, near Askari 14 Gate 1",
     city: "Rawalpindi",
-    price: 24_000_000,
     type: "house",
     area: "5 Marla",
     facilities: [
@@ -83,17 +79,16 @@ export const properties: Property[] = [
       "Bank loan available",
     ],
     description:
-      "A 5 marla double-storey house on Caltex Road, Lane 4, near Askari 14 Gate 1. Water and electricity are connected. A bank loan can be arranged on this house. Asking 240 lakh (PKR 2.40 Crore). WhatsApp Perwaz for a viewing.",
+      "A 5 marla double-storey house on Caltex Road, Lane 4, near Askari 14 Gate 1. Water and electricity are connected. A bank loan can be arranged on this house. WhatsApp us for the price and a viewing.",
     coverImage: "23.jpg",
     images: photoList(26, "23.jpg"),
     status: "for-sale",
   },
   {
     slug: "4-marla-caltex",
-    title: "4 Marla 1.5-Storey House for Sale",
+    title: "4 Marla 1.5-Storey House",
     location: "Caltex Road",
     city: "Rawalpindi",
-    price: 18_000_000,
     type: "house",
     area: "4 Marla",
     facilities: [
@@ -102,17 +97,16 @@ export const properties: Property[] = [
       "Gas not available",
     ],
     description:
-      "A 4 marla 1.5-storey house on Caltex Road. Water and electricity are connected. Sui gas is not available. Asking 180 lakh (PKR 1.80 Crore). WhatsApp Perwaz for the exact street and a viewing.",
+      "A 4 marla 1.5-storey house on Caltex Road. Water and electricity are connected. Sui gas is not available. This house is sold out. WhatsApp us if you want something similar.",
     coverImage: "19.jpg",
     images: photoList(21, "19.jpg"),
-    status: "for-sale",
+    status: "sold",
   },
   {
     slug: "10-marla-adyala",
     title: "10 Marla Single-Storey House for Sale",
     location: "Adyala Road, near NADRA office",
     city: "Rawalpindi",
-    price: 19_000_000,
     type: "house",
     area: "10 Marla",
     facilities: [
@@ -122,7 +116,7 @@ export const properties: Property[] = [
       "Lawn and car porch",
     ],
     description:
-      "A 10 marla single-storey house on Adyala Road, near the NADRA office. Water, electricity and gas are connected. Asking 190 lakh (PKR 1.90 Crore). WhatsApp Perwaz for a viewing.",
+      "A 10 marla single-storey house on Adyala Road, near the NADRA office. Water, electricity and gas are connected. WhatsApp us for the price and a viewing.",
     coverImage: "02.jpg",
     images: photoList(19, "02.jpg"),
     status: "for-sale",
@@ -132,7 +126,6 @@ export const properties: Property[] = [
     title: "9 Marla Triple-Storey House for Rent",
     location: "Defense Road",
     city: "Rawalpindi",
-    price: 110_000,
     type: "house",
     area: "9 Marla",
     facilities: [
@@ -141,7 +134,7 @@ export const properties: Property[] = [
       "Gas available",
     ],
     description:
-      "A 9 marla triple-storey house on Defense Road, offered for rent. Water, electricity and gas are connected. Rent is PKR 1.10 Lakh per month. WhatsApp Perwaz to see the house.",
+      "A 9 marla triple-storey house on Defense Road, offered for rent. Water, electricity and gas are connected. WhatsApp us for the rent and a viewing.",
     coverImage: "02.jpg",
     images: photoList(34, "02.jpg"),
     videos: ["01.mp4", "02.mp4"],
@@ -152,12 +145,11 @@ export const properties: Property[] = [
     title: "4.5 Marla Single-Storey House for Sale",
     location: "Defense Road, near Askari 14 Gate 2",
     city: "Rawalpindi",
-    price: 9_800_000,
     type: "house",
     area: "4.5 Marla",
     facilities: ["Water available", "Electricity available"],
     description:
-      "A 4.5 marla single-storey house on Defense Road, near Askari 14 Gate 2. Water and electricity are connected. Asking 98 lakh. WhatsApp Perwaz for a viewing.",
+      "A 4.5 marla single-storey house on Defense Road, near Askari 14 Gate 2. Water and electricity are connected. WhatsApp us for the price and a viewing.",
     coverImage: "11.jpg",
     images: photoList(13, "11.jpg"),
     status: "for-sale",
@@ -167,7 +159,6 @@ export const properties: Property[] = [
     title: "4 Marla Single-Storey House for Sale",
     location: "Defense Road, near Askari 14 Gate 2",
     city: "Rawalpindi",
-    price: 9_500_000,
     type: "house",
     area: "4 Marla",
     facilities: [
@@ -176,7 +167,7 @@ export const properties: Property[] = [
       "Gas not available",
     ],
     description:
-      "A 4 marla single-storey house on Defense Road, near Askari 14 Gate 2. Water and electricity are connected. Sui gas is not available. Asking 95 lakh. A walk-through video is on the listing. WhatsApp Perwaz to visit.",
+      "A 4 marla single-storey house on Defense Road, near Askari 14 Gate 2. Water and electricity are connected. Sui gas is not available. A walk-through video is on the listing. WhatsApp us for the price and a visit.",
     coverImage: "",
     images: [],
     videos: ["01.mp4"],
@@ -187,7 +178,6 @@ export const properties: Property[] = [
     title: "5 Marla 2.5-Storey House for Sale",
     location: "Defense Road, Askari 14 Gate 2, Sector D, Khan House",
     city: "Rawalpindi",
-    price: 17_000_000,
     type: "house",
     area: "5 Marla",
     facilities: [
@@ -197,7 +187,7 @@ export const properties: Property[] = [
       "WASA connection available",
     ],
     description:
-      "A 5 marla 2.5-storey house for sale on Defense Road near Askari 14 Gate 2, Sector D (Khan House). Water and electricity are connected, including a WASA connection. Sui gas is not available. Asking 170 lakh (PKR 1.70 Crore). Walk-through videos are on the listing. WhatsApp Perwaz to visit.",
+      "A 5 marla 2.5-storey house for sale on Defense Road near Askari 14 Gate 2, Sector D (Khan House). Water and electricity are connected, including a WASA connection. Sui gas is not available. Walk-through videos are on the listing. WhatsApp us for the price and a visit.",
     coverImage: "",
     images: [],
     videos: ["01.mp4", "02.mp4"],
@@ -208,7 +198,6 @@ export const properties: Property[] = [
     title: "5 Marla House for Sale",
     location: "Street and sector on WhatsApp",
     city: "Rawalpindi",
-    price: 11_000_000,
     type: "house",
     area: "5 Marla",
     facilities: [
@@ -224,7 +213,7 @@ export const properties: Property[] = [
       "Wooden doors",
     ],
     description:
-      "A 5 marla house offered at 110 lakh (PKR 1.10 Crore). Grey front elevation with a gated car porch, marble floors, false ceilings and wooden doors throughout. The home includes a drawing lounge, a fitted kitchen with cabinets, and bedrooms with built-in wardrobes. Water and electricity are connected. Sui gas is not available. WhatsApp Perwaz for the exact location and a viewing.",
+      "A 5 marla house with a grey front elevation, a gated car porch, marble floors, false ceilings and wooden doors throughout. The home includes a drawing lounge, a fitted kitchen with cabinets, and bedrooms with built-in wardrobes. Water and electricity are connected. Sui gas is not available. WhatsApp us for the price, the exact location, and a viewing.",
     coverImage: "02.jpg",
     images: photoList(11, "02.jpg"),
     status: "for-sale",
@@ -234,12 +223,11 @@ export const properties: Property[] = [
     title: "Three 5 Marla Plots for Sale",
     location: "Samarzar",
     city: "Rawalpindi",
-    price: 6_500_000,
     type: "plot",
     area: "5 Marla each (3 plots)",
     facilities: ["Three adjoining 5 marla plots"],
     description:
-      "Three 5 marla plots in Samarzar. Asking 65 lakh for all three. Site videos are on the listing. WhatsApp Perwaz for the exact street and papers.",
+      "Three 5 marla plots in Samarzar. Site videos are on the listing. WhatsApp us for the price, the exact street, and papers.",
     coverImage: "",
     images: [],
     videos: ["01.mp4", "02.mp4", "03.mp4"],
