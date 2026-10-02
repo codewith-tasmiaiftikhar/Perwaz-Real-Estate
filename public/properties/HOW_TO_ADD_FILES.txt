@@ -1,0 +1,11 @@
+Drop each property into its own folder, then add the details in src/data/properties.ts
+
+Example:
+
+public/properties/dha-lahore-10-marla/photos/cover.jpg
+public/properties/dha-lahore-10-marla/photos/living.jpg
+public/properties/dha-lahore-10-marla/videos/walkthrough.mp4
+
+Use short file names. The "slug" in properties.ts must match the folder name.
+
+WhatsApp number goes in src/data/site.ts
